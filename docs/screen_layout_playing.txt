@@ -1,0 +1,15 @@
+[x]n cards
+
+
+    [o] [o] [o] [o]
+
+    [o] [o] [o] [o]
+
+
+[x]n cards
+
+
+
+----------------------------
+x = un-planned
+o = in play anv visible
