@@ -1,8 +1,12 @@
 .card {
-  &--face--locked {
-
+  width: 20px;
+  height: 40px;
+  border: solid black 1px;
+  &--face-up--locked {
+    background-color: blue;
   }
-  &--face--unlocked {
+  &--face-dwn--unlocked {
+    background-color: red;
 
   }
 }

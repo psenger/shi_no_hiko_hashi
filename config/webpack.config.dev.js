@@ -11,6 +11,7 @@ const eslintFormatter = require('react-dev-utils/eslintFormatter');
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 const getClientEnvironment = require('./env');
 const paths = require('./paths');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 // Webpack uses `publicPath` to determine where the app is being served from.
 // In development, we always serve from the root. This makes config easier.
@@ -144,6 +145,8 @@ module.exports = {
           /\.gif$/,
           /\.jpe?g$/,
           /\.png$/,
+          /\.sass$/,
+          /\.scss$/,
         ],
         loader: require.resolve('file-loader'),
         options: {
@@ -213,6 +216,14 @@ module.exports = {
       },
       // ** STOP ** Are you adding a new loader?
       // Remember to add the new extension(s) to the "file" loader exclusion list.
+      {
+        test: /\.(sass|scss)$/,
+        include: paths.appSrc,
+        use: ExtractTextPlugin.extract({
+          fallback: "style-loader",
+          use: "css-loader!sass-loader",
+        }),
+      },
     ],
   },
   plugins: [
