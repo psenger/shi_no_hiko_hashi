@@ -137,14 +137,12 @@ module.exports = {
         exclude: [
           /\.html$/,
           /\.(js|jsx)$/,
-          /\.css$/,
+          /\.scss$/,
           /\.json$/,
           /\.bmp$/,
           /\.gif$/,
           /\.jpe?g$/,
           /\.png$/,
-          /\.sass$/,
-          /\.scss$/,
         ],
         loader: require.resolve('file-loader'),
         options: {
@@ -167,7 +165,7 @@ module.exports = {
         include: paths.appSrc,
         loader: require.resolve('babel-loader'),
         options: {
-          
+
           compact: true,
         },
       },
@@ -184,7 +182,7 @@ module.exports = {
       // use the "style" loader inside the async code so CSS from them won't be
       // in the main CSS file.
       {
-        test: /\.css$/,
+        test: /\.s?css$/,
         loader: ExtractTextPlugin.extract(
           Object.assign(
             {
@@ -218,6 +216,9 @@ module.exports = {
                     ],
                   },
                 },
+                {
+                  loader: require.resolve('sass-loader'),
+                }
               ],
             },
             extractTextPluginOptions
@@ -227,15 +228,6 @@ module.exports = {
       },
       // ** STOP ** Are you adding a new loader?
       // Remember to add the new extension(s) to the "file" loader exclusion list.
-      {
-        test: /\.(sass|scss)$/,
-        include: paths.appSrc,
-        use: ExtractTextPlugin.extract({
-          fallback: "style-loader",
-          // use: "css-loader!sass-loader",
-          use: ['css-loader', 'sass-loader']
-        }),
-      },
     ],
   },
   plugins: [
