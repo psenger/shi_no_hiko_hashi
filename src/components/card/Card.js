@@ -40,7 +40,7 @@ class Card extends Component {
    */
   render() {
     let { value, clazzNames }  = this.props;
-    let className = new classNames( Object.assign( { 'card' : true }, clazzNames ) );
+    let className = classNames( Object.assign( { 'card' : true }, clazzNames ) );
 
     return (
       <div className={className} onClick={this.onClickHandlerProxy} tabIndex={0} data-component-name={this.displayName}>{value}</div>
