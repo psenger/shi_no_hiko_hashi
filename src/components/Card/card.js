@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import classNames from 'classnames';
 
-import './Card.scss'
+import './card.scss'
 
 /**
  * A basic Card Class used for creating html cards.
