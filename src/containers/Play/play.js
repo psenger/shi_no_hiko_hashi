@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import './play.scss';
+import Table from '../../components/Table/table';
 
 class Play extends Component {
 
@@ -12,6 +13,7 @@ class Play extends Component {
     return (
       <div>
         <h1>Play</h1>
+        <Table/>
       </div>
     );
   }
